@@ -11,7 +11,7 @@
         <tbody>
             <tr *ngFor="let i of numbers" class="row">
                 <td *ngFor="let j of numbers" class="col-4">
-                    <button class="btn btn-outline-primary mx-auto  " (click)="fieldClicked(i,j)">{{getSymbol(field[i][j])}}</button> <!--⠀-->  
+                    <button class="btn btn-outline-primary mx-auto  " (click)="fieldClicked(i,j)" [disabled]="result != ''">{{getSymbol(field[i][j])}}</button> <!--⠀-->  
                 </td>
             </tr>
         </tbody>
