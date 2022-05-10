@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TictactoeService } from 'src/app/services/tictactoe.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { TictactoeService } from 'src/app/services/tictactoe.service';
 export class GameComponent implements OnInit {
 
   @Input() gameNumber: number = 0
+
+  @Output() gameEnded = new EventEmitter<string>(); //Event erstellen
 
   constructor(public tictactoeService: TictactoeService) {
     this.numbers = tictactoeService.getNumberArr()
@@ -45,13 +47,13 @@ export class GameComponent implements OnInit {
             this.winner = "X"
             break;
         }
-        if(this.winner === ""){
+        if (this.winner === "") {
           this.result = "Unentschieden"
         }
         else {
-          this.result = "Sieger: "+this.winner
+          this.result = "Sieger: " + this.winner
         }
-        
+        this.gameEnded.emit(this.winner)
       }
     }
   }

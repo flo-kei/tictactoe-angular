@@ -1,6 +1,11 @@
 <div class="container">
-  <div class="row">
-    <h1>TicTacToe-Simultanturnier</h1>
+  <div class="flex-fill">
+    <h1 class="text-center">TicTacToe-Concurrent-Tournament</h1>
+    <div class="text-center">
+      <p>Wins of X: {{searchResults("X")}}</p>
+      <p>Wins of O: {{searchResults("O")}}</p>
+      <p>Draws: {{searchResults("")}}</p>
+    </div>
     <table class="table-sm mx-auto">
       <thead>
         <tr>
@@ -8,8 +13,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let i of numbers" class="row">
-          <td *ngFor="let j of numbers" class="col-3">
-            <app-game [gameNumber]="getNum(i,j)"></app-game>
+          <td *ngFor="let j of numbers" class="col-4 ">
+            <app-game [gameNumber]="getNum(i,j)" (gameEnded)="processGameResults($event,i,j)"></app-game>
           </td>
         </tr>
     </table>
