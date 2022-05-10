@@ -17,7 +17,13 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    if(this.gameNumber >= 4){
+      this.currentPlayer = -1
+    }
+    if(this.gameNumber >= 7){
+      let array = [-1,1]
+      this.currentPlayer = array[Math.floor(Math.random() * array.length)]
+    }
   }
 
   winner = ""
