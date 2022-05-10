@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TictactoeService } from './services/tictactoe.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tictactoe';
+  number = 3
+  numbers: number[] = []
+
+  constructor(public tictactoeService: TictactoeService) {
+    this.numbers = tictactoeService.getNumberArr()
+  }
+
+  getNum(i: number, j: number): number {
+    return this.tictactoeService.getIndex(i, j)
+  }
 }
