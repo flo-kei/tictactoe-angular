@@ -1,14 +1,17 @@
 <div class="container">
-  <table class="table-sm">
-    <thead>
-      <tr>
-        <th></th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let i of numbers" class="row">
-        <td *ngFor="let j of numbers" class="col-4">
-          <app-game [gameNumber]="getNum(i,j)"></app-game>
-        </td>
-      </tr>
-  </table>
+  <div class="row">
+    <h1>TicTacToe-Simultanturnier</h1>
+    <table class="table-sm mx-auto">
+      <thead>
+        <tr>
+          <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of numbers" class="row">
+          <td *ngFor="let j of numbers" class="col-3">
+            <app-game [gameNumber]="getNum(i,j)"></app-game>
+          </td>
+        </tr>
+    </table>
+  </div>
 </div>

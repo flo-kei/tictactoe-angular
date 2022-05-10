@@ -71,6 +71,10 @@ export class TictactoeService {
       }
       count = 0
     }
+
+    if(!arr.some(row => row.includes(0))){
+      return 2
+    }
     return 0
   }
 }

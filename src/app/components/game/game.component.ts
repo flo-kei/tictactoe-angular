@@ -36,7 +36,21 @@ export class GameComponent implements OnInit {
 
       let winner = this.tictactoeService.checkIfWon(this.field)
       if(winner != 0){
-        alert("Winner is: "+ winner)
+        let winnerStr = ""
+        switch (winner) {
+          case -1:
+            winnerStr = "Sieger: O"
+            break;
+          case 1:
+            winnerStr = "Sieger: X"
+            break;
+          case 2:
+            winnerStr = "Unentschieden"
+            break;
+          default:
+            break;
+        }
+        this.result = winnerStr
       }
     }
   }
